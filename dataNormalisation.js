@@ -25,12 +25,13 @@ let getYearAndSemester =(yearAndSemCode)=>{
 		//then it is a character, indicating semester
 		let semester = getCharBlock(yearAndSemCode)
 		let year = yearAndSemCode.slice(semester.length).trim()
-		
+		year = (year.length == 2)? `20${year}`: year
 		return {semester,year}
 	}else{
 		//it is a number
 		let semester = getCharBlockReverse(yearAndSemCode)
 		let year = yearAndSemCode.slice(0, yearAndSemCode.length - semester.length).trim()
+		year = (year.length == 2)? `20${year}`: year
 		return {semester,year}
 
 	}
