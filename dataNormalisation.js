@@ -19,6 +19,7 @@ let normalizeCode=(code)=>{
 
 }
 
+
 let getYearAndSemester =(yearAndSemCode)=>{
 	yearAndSemCode = yearAndSemCode.trim()
 	if(isNaN(parseFloat(yearAndSemCode[0]))){
@@ -26,19 +27,36 @@ let getYearAndSemester =(yearAndSemCode)=>{
 		let semester = getCharBlock(yearAndSemCode)
 		let year = yearAndSemCode.slice(semester.length).trim()
 		year = (year.length == 2)? `20${year}`: year
+		if(semester.length < 3 ){ semester = fullSemester(semester)}
 		return {semester,year}
 	}else{
 		//it is a number
 		let semester = getCharBlockReverse(yearAndSemCode)
 		let year = yearAndSemCode.slice(0, yearAndSemCode.length - semester.length).trim()
 		year = (year.length == 2)? `20${year}`: year
+		if(semester.length < 3 ){ semester = fullSemester(semester) }
 		return {semester,year}
 
 	}
 
 }
 
+let fullSemester=(semester)=>{
+	semester =	semester.toLowerCase()
 
+	switch(semester){
+
+    case 'f' : semester = 'Fall'
+    break
+    case 'w' : semester = 'Winter'
+    break
+    case 's' : semester = 'Spring'
+    break
+    case 'su' : semester = 'Summer'
+
+}
+return semester
+}
 
 
 let getCourseNumber =(code, ncDept)=>{
