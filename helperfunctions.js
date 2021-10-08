@@ -1,6 +1,4 @@
-
-
-let normalizeCode=(code)=>{
+ function normalizeCode(code){
 	let codeObject ={}
 
 	let ncDept = getCharBlock(code)
@@ -108,3 +106,5 @@ let getCharBlockReverse = (code)=>{
 	output = output.split('').reverse().join('')
 	return output
 }
+
+module.exports = {normalizeCode}

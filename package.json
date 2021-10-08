@@ -1,0 +1,31 @@
+{
+  "name": "foodtrain",
+  "version": "1.0.0",
+  "description": "foodtrain test on data normalisation",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "node": "^16.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codarbind/foodtrain.git"
+  },
+  "keywords": [
+    "foodtrain",
+    "abdwahab",
+    "test",
+    "data",
+    "normalisation"
+  ],
+  "author": "Abdwahab Adekoa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/codarbind/foodtrain/issues"
+  },
+  "homepage": "https://github.com/codarbind/foodtrain#readme"
+}
