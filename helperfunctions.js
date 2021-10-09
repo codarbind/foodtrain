@@ -1,19 +1,23 @@
  function normalizeCode(code){
-	let codeObject ={}
-
-	let ncDept = getCharBlock(code)
-	codeObject.Department = ncDept
-
-	let ncCourseNumber = getCourseNumber(code, ncDept)
-	codeObject.courseNumber = ncCourseNumber.courseNumber
-
-	let {yearAndSemCode}  = ncCourseNumber
-
-	let ncYearAndSem = getYearAndSemester(yearAndSemCode)
-	codeObject.year = ncYearAndSem.year
-	codeObject.semester = ncYearAndSem.semester
-
-	return codeObject
+	try {
+		let codeObject ={}
+	
+		let ncDept = getCharBlock(code)
+		codeObject.Department = ncDept
+	
+		let ncCourseNumber = getCourseNumber(code, ncDept)
+		codeObject.courseNumber = ncCourseNumber.courseNumber
+	
+		let {yearAndSemCode}  = ncCourseNumber
+	
+		let ncYearAndSem = getYearAndSemester(yearAndSemCode)
+		codeObject.year = ncYearAndSem.year
+		codeObject.semester = ncYearAndSem.semester
+	
+		return codeObject
+	}catch(e){
+		return {'errorMessage':'there is an error with the input'}
+	}
 
 }
 
