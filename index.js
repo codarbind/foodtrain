@@ -7,5 +7,5 @@ const normalisecode = require('./routes/normalisecode')
 app.use(normalisecode)
 
 
-const PORT = 4500
-app.listen(PORT,console.log('app running on ',PORT))
+const PORT = process.env.PORT || 4500
+app.listen(PORT, () => console.log(`Server running at ${PORT}`));
