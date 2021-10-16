@@ -2,16 +2,20 @@ const express = require('express')
 const router = express.Router()
 const neededFunctions = require('../helperfunctions')
 
+router.get('/coursecode/coursecodeobject/:coursecode',async (req,res)=>{
+	let {coursecode} = req.params
+		
+	if(coursecode.length >=6 && coursecode.indexOf(' ') !== -1){
+		await neededFunctions.normalizeCode(coursecode)
+		res.status(200).json(responseObject)
+	}else{
+		res.status(400).json({'errorMessage':'that is not a valid course code'})
+	}
+
+})
+
 router.get('/coursecode/coursecodeobject',async (req,res)=>{
-
-	let {code} = req.query
-	console.log(code)
-	if(!code) return res.json({'errorMessage':"kindly call with course code: \'code\' as query parameter"})
-	let responseObject = (code.length >=6 && code.indexOf(' ') !== -1)? await neededFunctions.normalizeCode(code): {'errorMessage':'that is not a valid course code'}
-	
-	res.json(responseObject)
-
-	
+	res.status(400).json({'errorMessage':"kindly make a GET request: /coursecode/coursecodeobject/${coursecode} "})
 })
 
 module.exports = router
